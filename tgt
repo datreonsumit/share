@@ -1,0 +1,100 @@
+put -> localhost:9200/target
+
+{
+	"settings": {
+		"index": {
+			"max_inner_result_window": "2000000",
+			"mapper.dynamic": false
+		}
+	},
+	"mappings": {
+		"target": {
+			"properties": {
+				"username": {
+					"type": "text"
+				},
+				"casename": {
+					"type": "text"
+				},
+				"appid": {
+					"type": "text"
+				},
+				"usertype": {
+					"type": "text"
+				},
+				"targetname": {
+					"type": "text"
+				},
+				"comment": {
+					"type": "text"
+				},
+				"targetparam": {
+					"type": "nested",
+					"properties": {
+						"email": {
+							"type": "keyword"
+						},
+						"ip": {
+							"type": "keyword"
+						},
+						"macaddress": {
+							"type": "keyword"
+						},
+						"imei": {
+							"type": "text"
+						},
+						"imsi": {
+							"type": "text"
+						},
+						"number": {
+							"type": "text"
+						}
+						
+					}
+				}
+			}
+		}
+	}
+}
+
+put -> localhost:9200/targetnotification 
+
+{
+	"settings": {
+		"index": {
+			"max_inner_result_window": "2000000",
+			"mapper.dynamic": false
+		}
+	},
+	"mappings": {
+		"targetnotification ": {
+			"properties": {
+				"dt": {
+					"type": "date"
+				},
+				"notification": {
+					"type": "text"
+				},
+				"readstatus": {
+					"type": "boolean"
+				},
+				"target": {
+					"type": "text"
+				},
+				"targettype": {
+					"type": "text"
+				},
+				"username": {
+					"type": "text"
+				},
+				"appid": {
+					"type": "text"
+				}
+			}
+		}
+	}
+}
+
+
+
+
